@@ -265,7 +265,6 @@ public class ChefRegisteration extends AppCompatActivity {
                                     }
                                 });
 
-
                             } else {
                                 mDialog.dismiss();
                                 ReusableCodeForAll.ShowAlert(ChefRegisteration.this, "Error", task.getException().getMessage());
