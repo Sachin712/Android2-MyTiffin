@@ -8,11 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.android2_foodapp.customerFoodPanel.CustomerCartFragment;
 import com.example.android2_foodapp.customerFoodPanel.CustomerHomeFragment;
 import com.example.android2_foodapp.customerFoodPanel.CustomerOrdersFragment;
 import com.example.android2_foodapp.customerFoodPanel.CustomerProfileFragment;
+import com.example.android2_foodapp.customerFoodPanel.CustomerTrackFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -23,6 +26,22 @@ public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity implem
         setContentView(R.layout.activity_customer_food_panel_bottom_navigation);
         BottomNavigationView navigationView = findViewById(R.id.bottom_navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+        String name=getIntent().getStringExtra("PAGE");
+        FragmentManager fragmentManager= getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if(name!=null){
+            if(name.equalsIgnoreCase("Homepage")){
+                loadcustomerfragment(new CustomerHomeFragment());
+            }else if(name.equalsIgnoreCase("Preparingpage")){
+                loadcustomerfragment(new CustomerTrackFragment());
+            }else if(name.equalsIgnoreCase("DeliveryOrderpage")) {
+                loadcustomerfragment(new CustomerTrackFragment());
+            }else if(name.equalsIgnoreCase("Thankyoupage")){
+                loadcustomerfragment(new CustomerHomeFragment());
+            }
+        }else{
+            loadcustomerfragment(new CustomerHomeFragment());
+        }
     }
 
     @Override

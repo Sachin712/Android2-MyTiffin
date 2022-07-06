@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.android2_foodapp"
-    >
-
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    package="com.example.android2_foodapp">
 
     <application
         android:allowBackup="true"
@@ -19,8 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android2_FoodApp"
         tools:targetApi="31">
-
-<!--        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />-->
+        <activity
+            android:name=".UpdateDelete_Dish"
+            android:exported="false" />
+        <!-- <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" /> -->
         <activity
             android:name=".chefFoodPanel.Chef_PostDish"
             android:exported="false" />
@@ -35,11 +31,10 @@
             android:exported="false" />
         <activity
             android:name=".ChefFoodPanel_BottomNavigation"
-            android:exported="false">
-        </activity>
-        <activity android:name=".CustomerFoodPanel_BottomNavigation"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
+        <activity
+            android:name=".CustomerFoodPanel_BottomNavigation"
+            android:exported="false" />
         <activity
             android:name=".ChefVerifyPhone"
             android:exported="false" />
@@ -77,5 +72,11 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>
